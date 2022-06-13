@@ -1,0 +1,1 @@
+(()=>{"use strict";const o=function(o,e){return o*e};console.log(10.25),console.log(30),console.log("longNameFunction"),console.log(""),console.log(o(100,200)),console.log("NolBu");var e=document.querySelector("#app"),l=document.createElement("h3"),n=document.createTextNode(o(100,200));l.appendChild(n),e.appendChild(l),console.log("Hello World")})();

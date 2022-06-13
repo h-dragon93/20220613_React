@@ -13,6 +13,8 @@ console.log(name);
 
 const app = document.querySelector('#app');
 const h3 = document.createElement('h3'); // <h3>30</h3>
-const h3Text = document.createTextNode(onAdd(10, 20));
+const h3Text = document.createTextNode(onPlus(100, 200));
 h3.appendChild(h3Text);
 app.appendChild(h3);
+
+console.log('Hello World')
