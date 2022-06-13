@@ -91,5 +91,6 @@ Babel 작업 설정
 Webpack 설정 
     npm i -D webpack webpack-cli
 
+    환경 설정 파일 작성 - 모듈이 하나 더 설치됨(@webpack-cli/generators)
     npx webpack-cli init
     
