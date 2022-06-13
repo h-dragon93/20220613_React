@@ -8,6 +8,7 @@ JavaScript
     babel plugin:       https://babeljs.io/docs/en/plugins/
     
 
+
 VSCode plugin
     Korean Language Pack for Visual Studio Code
     ES7 React/Redux/GraphQL/React-Native snippets
@@ -15,6 +16,7 @@ VSCode plugin
     Live Server
     Auto Rename Tag
     Auto Close Tag
+    ESLint
 
     Bracket Pair Colorizer
     Material Icon Theme

@@ -9,7 +9,7 @@ eslint
         npm i -D eslint @eslint/create-config eslint-config-airbnb eslint-config-google
 
     2. eslint init
-        npx exlint --init               답변에 따라 설정
+        npx eslint --init               답변에 따라 설정
         npx eslint A01_Variable.js      검사 실행
             “eslint:recommended”는 rules page에 있는 체크표시된 모든 규칙들을 활성화.
             참조] https://eslint.org/docs/rules/
@@ -63,7 +63,7 @@ prettier
                 "prettier"
             ],
 
-    2. prettierrc
+    2. .prettierrc
         {
             "arrowParens": "avoid", // 화살표 함수 괄호 사용 방식
             "bracketSpacing": false, // 객체 리터럴에서 괄호에 공백 삽입 여부 
