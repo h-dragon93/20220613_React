@@ -15,7 +15,8 @@
     },
     "rules": {
         "prettier/prettier": "error",
-        "no-var": "off"
+        "no-var": "off",
+        "require-jsdoc": "off"
     },
     "plugins": [
         "prettier"
