@@ -1,5 +1,7 @@
 (function () {
   // 일반 함수.
+
+  /** ESLint. 일반 함수에는 함수의 동작을 정의하는 주석을 추가 해야 한다 */
   function fn() {
     console.log('funcion');
   }
@@ -9,7 +11,7 @@
     fn() => {
 
     }
-    */
+  */
 
   const ary = [10, 11, 100, 101, 1000];
 
