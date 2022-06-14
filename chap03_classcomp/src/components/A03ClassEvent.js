@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 export class A03ClassEvent extends Component {
 
+    // state를 생성자 메서드 밖에서 사용할때 정의 방법
     state = {
         name: 'NolBu',
         age: 30,
@@ -14,6 +15,13 @@ export class A03ClassEvent extends Component {
         four: [],
     };
     
+    changeName = (evt) => this.setState({name: evt.target.value});
+    changeString = (evt) => this.setState({[evt.target.name]: evt.target.value});
+    changeNumber = (evt) => {
+        let value = Number(evt.target.value);
+        if(isNaN(value)) value = '';
+        this.setState({[evt.target.name]: value});
+    }
 
     render() {
         return (
@@ -22,11 +30,14 @@ export class A03ClassEvent extends Component {
 
                 <form>
                     Name: {this.state.name}
-                        <input type="text" name="name" className="form-control" />
-                    Age: {this.state.age} 
-                        <input type="text" name="age" className="form-control" />
+                        <input type="text" name="name" className="form-control" 
+                            defaultValue={this.state.name} onChange={this.changeName} />
+                    Age: {this.state.age + 100} 
+                        <input type="text" name="age" className="form-control" 
+                            value={this.state.age} onChange={this.changeNumber} />
                     Date: {this.state.date}
-                        <input type="date" name="date" className="form-control" />
+                        <input type="date" name="date" className="form-control" 
+                            value={this.state.date} onChange={this.changeString} />
 
                     RadioButton: {this.state.sports}<br />
                         <div className="form-check">

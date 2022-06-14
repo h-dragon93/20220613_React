@@ -45,6 +45,21 @@ export class A02ClassState extends Component {
     this.setState({arr: newArray});
   }
 
+  // Object
+  addObject = (key, value) => {
+    const newObj = {...this.state, [key]: value};
+    this.setState({user: newObj});
+  }
+  updateObject = (key, value) => {
+    const newObj = {...this.state, [key]: value};
+    this.setState({user: newObj});
+  }
+  deleteObject = (key) => {
+    delete this.state[key];
+    const newObj = {...this.state};
+    this.setState({user: newObj});
+  }
+
   render() {
     return (
       <div>
@@ -63,6 +78,12 @@ export class A02ClassState extends Component {
         </div>
 
         <div>
+          {/*
+          이벤트를 실행할때 this.changeName() 형태로 ()를 사용하면 이벤트 리스너로 등록이 되는 것이 아니라
+          메서드의 실행으로 인식해서 바로 실행된다. 
+          state.arr 갱신 => Virtual DOM 갱신 => 화면 리 렌더링 => changeName() 재실행
+          state.arr 갱신 => Virtual DOM 갱신 => 화면 리 렌더링 => changeName() 재실행 형태로 무한 반복된다 => 에러
+          */}
           <button onClick={this.changeName}>Name</button>
           <button onClick={() => this.chagneAge()}>Age</button>
           <button onClick={this.chagneCheck}>isChecked</button>
@@ -70,6 +91,10 @@ export class A02ClassState extends Component {
           <button onClick={() => this.addArray()}>Add Array</button>
           <button onClick={(evt) => this.updateArray(0, 1000)}>Update Array</button>
           <button onClick={(evt) => this.deleteArray(0)}>Delete Array</button>
+
+          <button onClick={() => this.addObject('address', 'Seoul')}>Add Object</button>
+          <button onClick={(evt) => this.updateObject('address', 'Busan')}>Update Object</button>
+          <button onClick={(evt) => this.deleteObject('address')}>Delete Object</button>
         </div>
       </div>
     )
