@@ -40,10 +40,16 @@ export class A03ClassEvent extends Component {
     }
 
     sendDate = (evt) => {
+        // HTML 요소가 내장하고 있는 JavaScript 명령을 취소(실행하지 않음)한다.
         evt.preventDefault(); 
+
+        const data = {
+            ...this.state,
+            language: Array.from(this.state.language)
+        }
         
         // Ajax를 이용해서 서버에 전송.
-        console.log(this.state)
+        console.log(data);
     }
 
     render() {
@@ -120,7 +126,7 @@ export class A03ClassEvent extends Component {
                         </select>
                     <br />
 
-                    <button type="submit">SEND</button>
+                    <button type="submit" onClick={this.sendDate}>SEND</button>
                 </form>
             </div>
         )
