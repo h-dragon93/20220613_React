@@ -67,7 +67,7 @@ export class A02ClassState extends Component {
           <button onClick={() => this.chagneAge()}>Age</button>
           <button onClick={this.chagneCheck}>isChecked</button>
 
-          <button onClick={this.addArray}>Add Array</button>
+          <button onClick={() => this.addArray()}>Add Array</button>
           <button onClick={(evt) => this.updateArray(0, 1000)}>Update Array</button>
           <button onClick={(evt) => this.deleteArray(0)}>Delete Array</button>
         </div>
