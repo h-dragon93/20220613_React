@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 
 export class A05CreateDOM extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.baseArray = ['NC', '두산', '엘지', 'KT', '키움'];
         this.cnt = 4;
     }
@@ -24,7 +24,10 @@ export class A05CreateDOM extends Component {
     changeValue = (evt) => this.setState({[evt.target.name]: evt.target.value});
     addTeam = () => this.setState({baseObject: this.state.baseObject.concat({id: this.cnt++, team: '삼성', value:"Samsung"})});
     showHide = () => this.setState({isChecked: !this.state.isChecked});
-    addBaseArray = () => this.baseArray.push(this.state.team);
+    addBaseArray = () => {
+        this.baseArray.push(this.state.team);
+        this.forceUpdate();         // VDom에 있는 자료 기반으로 화면 갱신작업을 강제적으로 실행.
+    }
 
     render() {
         return (

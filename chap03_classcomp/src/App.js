@@ -2,6 +2,7 @@ import A01ClassProps from './components/A01ClassProps'
 import A02ClassState from './components/A02ClassState'
 import A03ClassEvent from './components/A03ClassEvent'
 import A04CreateDOM from './components/A04CreateDOM'
+import A05LifeCycle from './components/A05LifeCycle'
 
 function App() {
   // 변경되더라도 화면 갱신은 이루어지지 않은 일반 변수
@@ -13,6 +14,7 @@ function App() {
     <div className="card-body">
       <h1>Chap03 Class Component</h1>
 
+      <A05LifeCycle isChecked={false}></A05LifeCycle><br />
       <A04CreateDOM></A04CreateDOM><br />
       <A03ClassEvent></A03ClassEvent><br />
       <A02ClassState></A02ClassState><br />
