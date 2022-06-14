@@ -9,8 +9,8 @@ export class A03ClassEvent extends Component {
         age: 30,
         date: '2021-12-25',
         sports: 'baseball',
-        language: new Set(['Angular']),
-        isChecked: false,
+        language: new Set(['Angular', 'Vue']),
+        isChecked: true,
         baseball: 'NC',
         four: [],
     };
@@ -21,6 +21,29 @@ export class A03ClassEvent extends Component {
         let value = Number(evt.target.value);
         if(isNaN(value)) value = '';
         this.setState({[evt.target.name]: value});
+    }
+    changeCheck = () => this.setState({isChecked: !this.state.isChecked});
+    changeLanguage = (evt) => {
+        const value = evt.target.value;
+        if (this.state.language.has(value)) {
+            this.state.language.delete(value);
+        } else {
+            this.state.language.add(value);
+        }
+        const newLang = Array.from(this.state.language);
+        this.setState({language: new Set(newLang)})
+    }
+    changeSelect = (evt) => {
+        const options = Array.from(evt.target.selectedOptions);     // 유사 배열.
+        const data = options.map(item => item.value);
+        this.setState({four: data});
+    }
+
+    sendDate = (evt) => {
+        evt.preventDefault(); 
+        
+        // Ajax를 이용해서 서버에 전송.
+        console.log(this.state)
     }
 
     render() {
@@ -41,47 +64,56 @@ export class A03ClassEvent extends Component {
 
                     RadioButton: {this.state.sports}<br />
                         <div className="form-check">
-                            <input type="radio" name="sports" value="baseball" id="baseball" className="form-check-input" />
+                            <input type="radio" name="sports" value="baseball" id="baseball" className="form-check-input" 
+                                onChange={this.changeString} defaultChecked={this.state.sports === 'baseball'} />
                             <label htmlFor="baseball" className="form-check-label">야구</label>
                         </div>
                         <div className="form-check">
-                            <input type="radio" name="sports" value="soccer" id="soccer" className="form-check-input" />
+                            <input type="radio" name="sports" value="soccer" id="soccer" className="form-check-input" 
+                                onChange={this.changeString} defaultChecked={this.state.sports === 'soccer'} />
                             <label htmlFor="soccer" className="form-check-label">축구</label>
                         </div>
                         <div className="form-check">
-                            <input type="radio" name="sports" value="basketball" id="basketball" className="form-check-input" />
+                            <input type="radio" name="sports" value="basketball" id="basketball" className="form-check-input" 
+                                onChange={this.changeString} defaultChecked={this.state.sports === 'basketball'} />
                             <label htmlFor="basketball" className="form-check-label">농구</label>
                         </div>
 
-                    CheckBox One: {this.state.isChecked}<br />
+                    CheckBox One: {this.state.isChecked ? '동의' : '동의 안함'}<br />
                         <div className="form-check">
-                            <input type="checkbox" id="check" className="form-check-input" />
+                            <input type="checkbox" id="check" className="form-check-input" 
+                                defaultChecked={this.state.isChecked} onChange={this.changeCheck} />
                             <label htmlFor="check" className="form-check-label">동의</label>
                         </div>
 
                     CheckBox: { Array.from(this.state.language) } <br />
                         <div className="form-check">
-                            <input type="checkbox" name="language" value="Angular" id="angular" className="form-check-input" />
+                            <input type="checkbox" name="language" value="Angular" id="angular" className="form-check-input"
+                                defaultChecked={this.state.language.has('Angular')} onChange={this.changeLanguage} />
                             <label htmlFor="baseball" className="form-check-label">앵귤러</label>
                         </div>
                         <div className="form-check">
-                            <input type="checkbox" name="language" value="React" id="react" className="form-check-input" />
+                            <input type="checkbox" name="language" value="React" id="react" className="form-check-input"
+                                defaultChecked={this.state.language.has('React')} onChange={this.changeLanguage}  />
                             <label htmlFor="react" className="form-check-label">리엑트</label>
                         </div>
                         <div className="form-check">
-                            <input type="checkbox" name="language" value="Vue" id="vue" className="form-check-input" />
+                            <input type="checkbox" name="language" value="Vue" id="vue" className="form-check-input"
+                                defaultChecked={this.state.language.has('Vue')} onChange={this.changeLanguage}  />
                             <label htmlFor="vue" className="form-check-label">뷰</label>
                         </div>
 
                     SelectBox: {this.state.baseball}<br/>
-                        <select name="baseball" className="form-control" >
+                        <select name="baseball" className="form-control" 
+                            value={this.state.baseball} onChange={this.changeString} >
                             <option>NC</option>
                             <option>두산</option>
                             <option>엘지</option>
                         </select>
                     
                     SelectBox Multi: {Array.from(this.state.four) }<br />
-                        <select name="four" multiple size="3" className="form-control" >
+                        <select name="four" multiple size="3" className="form-control"
+                            value={this.state.four} onChange={this.changeSelect} >
                             <option>NC</option>
                             <option>두산</option>
                             <option>엘지</option>
