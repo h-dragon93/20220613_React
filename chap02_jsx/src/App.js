@@ -1,4 +1,7 @@
 import FuncComp from './components/A01FuncComp'
+import A02ClassComp from './components/A02ClassComp'
+import A03Fragment from './components/A03Fragment'
+import A04JQuery from './components/A04JQuery'
 /*
 const elem = <h3>Hello World 01</h3>
 function App () {
@@ -82,6 +85,9 @@ function App() {
       <br />
       <br />
       <FuncComp></FuncComp><br />
+      <A02ClassComp></A02ClassComp><br />
+      <A03Fragment></A03Fragment><br />
+      <A04JQuery></A04JQuery><br />
       <br />
       <img src="./images/tree.jpg" alt="나무 이미지" width="200"/>
     </div>
