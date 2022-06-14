@@ -1,7 +1,8 @@
 
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-export class A06PureComponent extends Component {
+// PureComponent는 기본형 state의 변수 값이 동일한 값으로 변경 변경 작업을 하지 않는 컴퍼넌트
+class A06PureComponent extends PureComponent {
     
     constructor(props){
         super(props);
@@ -18,6 +19,14 @@ export class A06PureComponent extends Component {
     changeObject = () => {
         this.setState({ary: ['React', 'Angular', 'Vue']})
     }
+
+    // PuerComponent는 이 메서드가 이미 재 정의 되어 있음( 같은 값이 넘어오면 false가 리턴)
+    // 따라서 PuerComponent를 사용할 수 없다
+    /*
+    shouldComponentUpdate(props, state) {
+        return true;
+    }
+    */
 
     render() {
         console.log("---------- render() Method ----------")
