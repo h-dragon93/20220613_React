@@ -19,8 +19,10 @@
 
 3. 프로젝트 생성    
     create-react-app 프로젝트이름
-    npx create-react-app@latest project-name
-    npx create-react-app@latest project-name --template typescript
+        ex] create-react-app template501
+
+    typescript으로 작성하는 경우
+        create-react-app project-name --template typescript
     
 4. 프로젝트로 진입
     cd 프로젝트이름
