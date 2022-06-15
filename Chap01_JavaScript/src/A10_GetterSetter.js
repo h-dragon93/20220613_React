@@ -31,6 +31,7 @@ class Jumsu {
   }
 }
 
+
 const nolbu = new Jumsu('Nolbu', 100, 90);
 console.log(nolbu._name); // undefined
 console.log(nolbu.getName()); // nolbu
