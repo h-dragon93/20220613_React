@@ -2,6 +2,7 @@ import A01FuncProps from './components/A01FuncProps'
 import A02FuncState from './components/A02FuncState'
 import A03FuncEvent from './components/A03FuncEvent'
 import A04CreateDOM from './components/A04CreateDOM'
+import A05Hook from './components/A05Hook'
 
 function App() {
   // 변경되더라도 화면 갱신은 이루어지지 않은 일반 변수
@@ -13,6 +14,7 @@ function App() {
     <div className="card-body">
       <h1>Chap04 Function Component</h1>
 
+      <A05Hook></A05Hook><br />
       <A04CreateDOM></A04CreateDOM><br />
       <A03FuncEvent></A03FuncEvent><br />
       <A02FuncState></A02FuncState><br />
