@@ -12,9 +12,9 @@ const reducer = (state, action) => {
         case 'ADD_LIST':
             return {...state, list: state.list.concat(state.avg)};
         default:
-            break;
+            return state;
     }
-    return state;
+    // return state;
 }
 const A06Hook = () => {
 
