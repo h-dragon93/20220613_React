@@ -1,4 +1,5 @@
 import A01FuncProps from './components/A01FuncProps'
+import A02FuncState from './components/A02FuncState'
 
 function App() {
   // 변경되더라도 화면 갱신은 이루어지지 않은 일반 변수
@@ -10,7 +11,8 @@ function App() {
     <div className="card-body">
       <h1>Chap04 Function Component</h1>
 
-      <A01FuncProps name="NolBu" age="30" ary={arr} user={user} onAdd={onAdd} isChecked>
+      <A02FuncState></A02FuncState><br />
+      <A01FuncProps name="NolBu" age={30} ary={arr} user={user} onAdd={onAdd} isChecked>
         This is App Content
       </A01FuncProps>
     </div>
