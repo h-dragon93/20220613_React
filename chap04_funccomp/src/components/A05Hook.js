@@ -44,10 +44,12 @@ const A05Hook = () => {
         setTimeout(() => {
             setToday(new Date());
         }, 1000);
-    }, [data]);
+    }, [data], () => console.log('abc'));   // 최초 이후 변경이 있으면 변경 후에 처리 작업을 등록
     
+    // 실행후 VD과 현재 state의 값을 비교하기 위해 1번 더 실행
     useEffect(() => {
-        cnt.current++;
+        console.log('useRef')
+        cnt.current++;              // 2
         numRef.current.style.backgroundColor = 'orange';
     }, [])
 
