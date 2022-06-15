@@ -6,6 +6,7 @@ import A05LifeCycle from './components/A05LifeCycle'
 import A06PureComponent from './components/A06PureComponent'
 import A07ShallowEqual from './components/A07ShallowEqual'
 import A08HigherOrderComp from './components/A08HigherOrderComp'
+import A09Currency from './components/A09Currency'
 
 function App() {
   // 변경되더라도 화면 갱신은 이루어지지 않은 일반 변수
@@ -17,6 +18,7 @@ function App() {
     <div className="card-body">
       <h1>Chap03 Class Component</h1>
 
+      <A09Currency></A09Currency><br />
       <A08HigherOrderComp name="NolBu"></A08HigherOrderComp><br />
       <A07ShallowEqual></A07ShallowEqual><br />
       <A06PureComponent></A06PureComponent><br />
