@@ -1,0 +1,13 @@
+
+.title {
+    background-color: gray;
+    color: aqua;
+    font-size: 24pt;
+    font-weight: bold;
+    padding: 20px;
+}
+
+/* 전역 css 파일로 등록된다 */
+:global .innerColor {
+    color: orange;
+}
