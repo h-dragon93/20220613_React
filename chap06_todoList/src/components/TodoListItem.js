@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { memo } from 'react'
 import './css/todos.css'
 
 function TodoListItem(props) {
@@ -19,5 +19,5 @@ function TodoListItem(props) {
         </tr>
     )
 }
-
-export default TodoListItem
+// props로 받은 값이 VD의 값과 동일하면 이전의 VD의 값을 그대로 사용
+export default memo(TodoListItem)
