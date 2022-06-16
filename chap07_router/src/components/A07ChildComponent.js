@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const A05ChildComponent = () => {
 
@@ -12,37 +12,15 @@ const A05ChildComponent = () => {
             
             <div>
                 <Link to="/A07Child">ONE</Link> | &nbsp; 
-                <Link to="/A07Child/two/100"> TWO</Link> |  &nbsp;
-                <Link to="/A07Child/three"> THREE</Link>
+                <Link to="/A07Child/company"> TWO</Link> |  &nbsp;
+                <Link to="/A07Child/product"> THREE</Link>
             </div>
             
             <hr />
 
-            <Route path="/A07Child"    exact       render={ () => (
-                <div>
-                    <h6>ONE Component</h6>
-                    <div>This is one Component</div>    
-                </div>
-            )} />
+            {/* 자식 Route 요소가 로드 될 공간을 정의 */}
+            <Outlet></Outlet>
 
-            <Route path="/A07Child/two/:id"        render={ ({match}) => (
-                <div>
-                    <h6>TWO Component</h6>
-                    <div>This is two Component</div>
-                    <br />
-
-                    <div>
-                        Id: {match.params.id}
-                    </div>
-                </div>
-            )} />
-
-            <Route path="/A07Child/three"          render={ () => (
-                <div>
-                    <h6>THREE Component</h6>
-                    <div>This is three Component</div>    
-                </div>
-            )} />
         </div>
     )
 }
