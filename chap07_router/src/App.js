@@ -5,6 +5,8 @@ import A01Props from './components/A01FunctionProps'
 import A02State from './components/A02FunctionState'
 import A03Currency from './components/A03Currency'
 import A04History from './components/A04History'
+import A05Param from './components/A05MatchParam'
+import A06Args from './components/A06Arguments'
 
 function App() {
   const user = {name: 'HungBu', age: 20};
@@ -21,6 +23,9 @@ function App() {
       <Link to="/A02State">A02State</Link> | {' '}
       <Link to="/A03Currency">A03Currency</Link> |  {' '} 
       <Link to="/A04History">A04History</Link> |  {' '} 
+      <Link to="/A05Param/1/data/NolBu">A05Param 1</Link> |  {' '} 
+      <Link to="/A05Param/2/data/HungBu">A05Param 2</Link> |  {' '} 
+      <Link to="/A06Args">A06Args</Link> |  {' '} 
 
       <hr />
 
@@ -30,6 +35,8 @@ function App() {
         <Route path="/A02State"         element={<A02State />} />
         <Route path="/A03Currency"      element={<A03Currency />} />
         <Route path="/A04History"       element={<A04History />} />
+        <Route path="/A05Param/:id/data/:name"       element={<A05Param />} />
+        <Route path="/A06Args"       element={<A06Args />} />
       </Routes>
     </div>
   );

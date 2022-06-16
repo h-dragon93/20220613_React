@@ -1,7 +1,11 @@
 
 import React from 'react';
-
+import {useLocation, useParams} from 'react-router-dom'
 const A03ParamComponent = () => {
+
+    const param = useParams();          // path value
+    // console.log(param)
+    const location = useLocation();
 
     const data = [
         { "id": 1, "name": "Apples", "category": "Fruit", "price": 1.20, "expiry": 10 },
@@ -11,6 +15,8 @@ const A03ParamComponent = () => {
         { "id": 5, "name": "Salmon", "category": "Fish", "price": 17.93, "expiry": 2 },
         { "id": 6, "name": "Trout", "category": "Fish", "price": 12.93, "expiry": 4 }
     ];
+
+    const product = data[ Number(param.id) - 1 ];
     
     return (
         <div>
@@ -19,12 +25,17 @@ const A03ParamComponent = () => {
             <br />
 
             <div>
-                Id: <br/>
-                Name: <br/>
-                Location: 
+                Id: {param.id}<br/>
+                Name: {param.name}<br/>
+                Location: {location.pathname}
             </div>
             <br />
 
+            <div>
+                Id: {product.id}<br/>
+                Name: {product.name}<br/>
+                category: {product.category}
+            </div>
         </div>
     )
 }
