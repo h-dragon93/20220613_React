@@ -2,7 +2,7 @@
 import React from 'react'
 
 function AddContact(props) {
-
+    
     return (
         <div>
             <h3>Get Contact</h3>

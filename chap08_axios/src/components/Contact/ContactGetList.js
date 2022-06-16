@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const GetContactList = (props) => {
 
-    const {contactList} = props;
+    const {contactList, getContact} = props;
 
     return (
         <div>
@@ -22,7 +22,7 @@ const GetContactList = (props) => {
                     {contactList.contacts.map(contact => (
                         <tr key={contact.no}>
                             <td>{contact.no}</td>
-                            <td><Link to="#">{contact.name}</Link></td>
+                            <td><Link to="#" onClick={() => getContact(contact.no)}>{contact.name}</Link></td>
                             <td>{contact.tel}</td>
                             <td>{contact.address}</td>
                             <td><img src={contact.photo} width="50px" alt="증명사진" /></td>
