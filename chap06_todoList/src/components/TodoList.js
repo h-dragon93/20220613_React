@@ -1,8 +1,11 @@
 
 import React from 'react'
 import './css/todos.css';
+import TodoListItem from './TodoListItem'
 
-function Todolist(){
+function Todolist(props){
+    
+    const {todoList, updateTodo, deleteTodo} = props;
 
     return (
         <div>
@@ -16,7 +19,8 @@ function Todolist(){
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    {todoList.map(todo => <TodoListItem key={todo.id} 
+                        todo={todo} updateTodo={updateTodo} deleteTodo={deleteTodo} />)}
                 </tbody>
             </table>
         </div>
