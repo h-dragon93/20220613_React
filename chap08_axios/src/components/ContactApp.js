@@ -1,5 +1,6 @@
-import React from 'react'
-import { Route, Switch } from 'react-router';
+import React, {useState, useEffect} from 'react'
+import { Route, Routes } from 'react-router-dom';
+import axios from 'axios'
 
 import ContactHeader from './Contact/ContactHeader'
 import ContactHome from './Contact/ContactHome'
@@ -10,19 +11,34 @@ import ContactGetList from './Contact/ContactGetList'
 
 function ContactApp() {
 
+    const [contactList, setContactList] = useState({pageno: '', pagesize: '', totalcount: '', contacts: []});
+    const [contact, setContact] = useState({no: '', name: '', tel: '', address: '', photo: ''});
+
+    const baseURL = 'http://localhost:8080/contacts/';
+
+    const getContactList = (no=1, size=10) => {
+        axios.get(baseURL, {params: {pageno: no, pagesize: size}})
+        .then(resp => setContactList(resp.data))
+        .catch(error => console.error(error));
+    };
+
+    useEffect(() => {
+        getContactList();
+    }, [])
+
     return (
         <div>
             <ContactHeader />
             <br />
             
-            <Switch>
-                <Route path="/"                 component={ContactHome}         exact/>
-                <Route path="/getContactList"   render={ () => <ContactGetList /> } />
-                <Route path="/getContact"       render={ () => <ContactGet />} />
-                <Route path="/addContact"       render={ () => <ContactAdd /> } />
-                <Route path="/updateContact"    render={ () => <ContactUpdate /> } />
-                <Route                          render={() => <h3>Not Found</h3>} />
-            </Switch>
+            <Routes>
+                <Route path="/"                 element={<ContactHome />}  />
+                <Route path="/getContactList"   element={<ContactGetList contactList={contactList} /> } />
+                <Route path="/getContact"       element={<ContactGet />} />
+                <Route path="/addContact"       element={<ContactAdd /> } />
+                <Route path="/updateContact"    element={<ContactUpdate /> } />
+                <Route                          element={<h3>Not Found</h3>} />
+            </Routes>
         </div>
     )
 }
